@@ -3,6 +3,8 @@ from word_list import words
 import random
 import string
 
+
+# selecting random word from the list of words.
 def get_word(words):
     word = random.choice(words)
     return word.upper()
@@ -19,11 +21,14 @@ def game():
 
         current_word = []
         for letter in word:
+            # if any letter in the set word is also part of used_letter, then our choice is correct and we will append that letter at its right position in our word.
             if letter in used_letters:
                 current_word.append(letter)
+            # if the letter is not what we selected we will keep that letter hidden as '-'
             else:
                 current_word.append("-")
         
+        # this is to visualize how our 'hangman' is hangin
         print(lives_visual_dict[turns])
         print(f"Current word is : {' '.join(current_word)}")
 
